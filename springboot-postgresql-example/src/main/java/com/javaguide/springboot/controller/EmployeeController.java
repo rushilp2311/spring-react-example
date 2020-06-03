@@ -30,9 +30,8 @@ public class EmployeeController {
 
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees(Model model) {
-		List<Employee> employees = 	employeeRepository.findAll();
-
-		return employees;
+		
+		return employeeRepository.findAll();
 	}
 
 	@GetMapping("/employees/{id}")
