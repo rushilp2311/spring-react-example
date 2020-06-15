@@ -3,9 +3,7 @@ package com.javaguide.springboot.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.javaguide.springboot.exception.ResourceNotFoundException;
 import com.javaguide.springboot.model.Employee;
 import com.javaguide.springboot.repository.EmployeeRepository;
@@ -30,7 +27,6 @@ public class EmployeeController {
 
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees(Model model) {
-		
 		return employeeRepository.findAll();
 	}
 
