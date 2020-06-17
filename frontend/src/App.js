@@ -13,7 +13,7 @@ class App extends React.Component {
     fetch("/api/v1/employees")
       .then((response) => response.text())
       .then((employees) => {
-        this.setState({ employees: [employees] });
+        this.setState({ employees: [employees] })
       });
   }
   render() {
