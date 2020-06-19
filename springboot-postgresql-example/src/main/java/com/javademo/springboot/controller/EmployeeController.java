@@ -20,7 +20,7 @@ import com.javademo.springboot.model.Employee;
 import com.javademo.springboot.repository.EmployeeRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class EmployeeController {
 	@Autowired
 	private EmployeeRepository employeeRepository;
