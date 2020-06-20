@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import axios from "axios";
 
 class App extends React.Component {
   constructor(props) {
@@ -10,14 +11,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/api/v1/employees")
-      .then((response) => response.text())
-      .then((employees) => {
-        this.setState({ employees: employees });
-      });
+    axios.get("http://localhost:8080/api/v1/employees").then((res) => {
+      this.setState({ employees:res.data });
+    });
   }
   render() {
-    return <div className="App">{this.state.employees}</div>;
+    const employees = this.state.employees;
+    return (
+      <div className="App">
+        <h1>Hello</h1>
+        
+        <h1>{employees.map((res) => console.log(res.id))}</h1>
+      </div>
+    );
   }
 }
 export default App;
