@@ -11,8 +11,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableConfigurationProperties(AppProperties.class)
 public class SpringbootPostgresqlExampleApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootPostgresqlExampleApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootPostgresqlExampleApplication.class, args);
+    }
 
 }

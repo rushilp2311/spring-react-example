@@ -17,11 +17,12 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email).orElseThrow(
-                ()->new UsernameNotFoundException("User not found with email : "+email));
+                () -> new UsernameNotFoundException("User not found with email : " + email));
         return UserPrincipal.create(user);
     }
+
     @Transactional
     public UserDetails loadUserById(Long id) throws ResourceNotFoundException {
         User user = userRepository.findById(id).orElseThrow(
