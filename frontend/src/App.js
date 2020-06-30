@@ -1,33 +1,35 @@
 import React from "react";
 import "./App.css";
-import axios from "axios";
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            employees: [],
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      merchant: [],
+    };
+  }
+  componentDidMount() {
+    fetch("http://localhost:8080/api/merchant")
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ merchant: res });
+      });
+  }
 
-    componentDidMount() {
-        axios.get("http://localhost:8080/api/v1/employees").then((res) => {
-            this.setState({employees: res.data});
-        });
-    }
-
-    render() {
-        const employees = this.state.employees;
-        return (
-            < div
-        className = "App" >
-            < h1 > Hello < /h1>
-
-            < h1 > {employees.map((res) => console.log(res.id))} < /h1>
-            < /div>
-    )
-        ;
-    }
+  render() {
+    return (
+      <div className='App'>
+          
+        {this.state.merchant.map(res => (
+        <ul>
+          <li key={res.merchant_id}>{res.merchant_id}</li>
+          <li>{res.merchant_name}</li>
+          <li>{res.merchant_email}</li>
+          </ul>
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;

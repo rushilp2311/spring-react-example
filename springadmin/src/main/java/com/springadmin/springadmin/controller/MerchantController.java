@@ -4,21 +4,22 @@ import com.springadmin.springadmin.model.Merchant;
 import com.springadmin.springadmin.repository.MerchantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+
+@RequestMapping("/api")
 public class MerchantController {
 
     @Autowired
     private MerchantRepository merchantRepository;
 
     @GetMapping("/merchant")
+    @CrossOrigin(origins = "http://localhost:3000")
     public List<Merchant> getAllMerchant(){
         return merchantRepository.findAll();
     }
