@@ -8,31 +8,22 @@ import java.util.Date;
 
 @Entity
 @Table(name = "queue")
-@IdClass(Key.class)
+
 public class Queue {
 
-    @Id
-    private Long user_id;
-    @Id
-    private Long merchant_id;
+    @EmbeddedId
+    private Key id;
+
     @JsonFormat(pattern = "HH:mm:ss")
     @Temporal(TemporalType.TIME)
     private Date join_time;
 
-    public Long getUser_id() {
-        return user_id;
+    public Key getId() {
+        return id;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
-    }
-
-    public Long getMerchant_id() {
-        return merchant_id;
-    }
-
-    public void setMerchant_id(Long merchant_id) {
-        this.merchant_id = merchant_id;
+    public void setId(Key id) {
+        this.id = id;
     }
 
     public Date getjoin_time() {
