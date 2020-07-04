@@ -20,7 +20,7 @@ public class SpringadminApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringadminApplication.class, args);
+    		SpringApplication.run(SpringadminApplication.class, args);
 	}
 
 }
